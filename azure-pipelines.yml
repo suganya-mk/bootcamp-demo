@@ -13,4 +13,10 @@ variables:
   imageName: 'suganya-mk/bootcamp-demo:$(build.buildId)'
 
 steps:
-- script: docker build -t suganya-aks:v1 ./app
+- task: Docker@1
+  displayName: Container registry login
+  inputs:
+    command: login
+    azureSubscriptionEndpoint: AzureRMConnection
+    azureContainerRegistry: acr4sug.azurecr.io
+    
