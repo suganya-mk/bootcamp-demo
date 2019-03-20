@@ -13,5 +13,4 @@ variables:
   imageName: 'suganya-mk/bootcamp-demo:$(build.buildId)'
 
 steps:
-- script: cd app
-- script: docker build -t suganya-aks:v1 .
+- script: docker build -t suganya-aks:v1 ./app
