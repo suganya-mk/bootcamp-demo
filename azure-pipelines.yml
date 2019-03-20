@@ -26,9 +26,17 @@ steps:
     dockerFile: app/Dockerfile
     imageName: $(imageName)
 - task: Docker@1
+  displayName: Tag image
+  inputs:
+    command: tag
+    azureSubscriptionEndpoint: AzureRMConnection
+    azureContainerRegistry: acr4sug.azurecr.io
+    imageName: $(imageName)
+    arguments: acr4sug.azurecr.io/$(imageName)
+- task: Docker@1
   displayName: Push image
   inputs:
     command: push
     azureSubscriptionEndpoint: AzureRMConnection
     azureContainerRegistry: acr4sug.azurecr.io
-    imageName: $(imageName)
+    imageName: acr4sug.azurecr.io/$(imageName)
