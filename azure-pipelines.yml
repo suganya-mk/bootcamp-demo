@@ -31,4 +31,4 @@ steps:
     command: push
     azureSubscriptionEndpoint: AzureRMConnection
     azureContainerRegistry: acr4sug.azurecr.io
-    imageName: acr4sug.azurecr.io/$(imageName)
+    imageName: $(imageName)
